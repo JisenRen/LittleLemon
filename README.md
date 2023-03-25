@@ -66,3 +66,5 @@ Our project applies throttling to limit the number of requests in a period of ti
 
 ### Unit Testing
 To demonstrate the concept of unit testing, our project includes a simple test case to verify the integrity of a model class. For example, according to the string type conversion, a menu item with title `IceCream` and price `80` should have string format `IceCream : 80`.
+
+Moreover, we also tested the behavior of serializer and responses. They are supposed to return the same data in JSON format. 
