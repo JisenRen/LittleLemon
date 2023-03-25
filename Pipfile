@@ -9,6 +9,9 @@ djangorestframework = "*"
 djangorestframework-xml = "*"
 djoser = "*"
 mysqlclient = "*"
+gunicorn = "*"
+django-heroku = "*"
+whitenoise = "*"
 
 [dev-packages]
 
