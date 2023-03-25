@@ -20,6 +20,7 @@ from rest_framework.routers import DefaultRouter
 
 from restaurant import views
 
+homepage_view = RedirectView.as_view(url='restaurant', permanent=True)
 favicon_view = RedirectView.as_view(url='static/img/favicon.ico', permanent=True)
 router = DefaultRouter()
 router.register(r'tables', views.BookingViewSet)
@@ -30,5 +31,6 @@ urlpatterns = [
     path('restaurant/booking/', include(router.urls)),
     path('auth/', include('djoser.urls')),
     path('auth/', include('djoser.urls.authtoken')),
+    path('', homepage_view),
     path('favicon.ico', favicon_view),
 ]

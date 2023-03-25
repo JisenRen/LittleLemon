@@ -4,7 +4,11 @@ from . import views
 
 urlpatterns = [
     path('', views.index, name='home'),
-    path('menu/', views.MenuItemsView.as_view()),
-    path('menu/<int:pk>', views.SingleMenuItemView.as_view()),
+    path('about/', views.about, name='about'),
+    path('menu/', views.menu, name='menu'),
+    path('menu/<int:pk>', views.display_menu_item, name='menu_item'),
+    path('book/', views.book, name='book'),
+    path('api/menu/', views.MenuItemsView.as_view()),
+    path('api/menu/<int:pk>', views.SingleMenuItemView.as_view()),
     path('api-token-auth/', obtain_auth_token),
 ]
