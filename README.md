@@ -55,12 +55,12 @@ The user registration step is simulated in the administration interface `/admin/
 
 After registration, the API token can be acquired by sending `POST` requests to the address `/restaurant/api-token-auth/`. The content of `POST` request should be a form with string fields `username` and `password` corresponding to registered users. 
 #### Dealing with database records at JSON format
-Our web application provides APIs for authenticated users, which supports retrieval or modification of database records. To use these APIs, the access token generated from the previous step must be provided in the request.
+Our web application provides APIs for authenticated users, which supports retrieval or modification of database records. Depending on the case, to use these APIs, the access token generated from the previous step might need to be provided in the request.
 
 Here's a list of supported APIs:
-* `/restaruant/api/menu/`: use `GET` method to retrieve a list of all menu items, or `POST` method to add new item;
-* `/restaurant/api/menu/<int:pk>`: use `GET` method to retrieve a single menu item whose ID equals `pk`, or `PUT` method to add a new item;
-* `/restaruant/booking/tables/`: an API managed by the router in REST framework, through which you can retrieve a list of all booking orders via `GET` method, or add a new order via `POST` method.
+* `/restaruant/api/menu/`: Use `GET` method to retrieve a list of all menu items, or `POST` method to add a new item. Authentication is required for `POST` but not for `GET`. 
+* `/restaurant/api/menu/<int:pk>`: Use `GET` method to retrieve a single menu item whose ID equals `pk`, or `PUT` method to modify the menu item. Authentication is required for `PUT` but not for `GET`. 
+* `/restaruant/booking/tables/`: An API managed by the router in REST framework, through which you can retrieve a list of all booking orders via `GET` method, or add a new order via `POST` method. Authentication is always required for this API.
 #### Rate limiting.
 Our project applies throttling to limit the number of requests in a period of time. Generally, anonymous users are limited to 100 requests per day, while authenticated users are limited to 1000 requests per day.
 
